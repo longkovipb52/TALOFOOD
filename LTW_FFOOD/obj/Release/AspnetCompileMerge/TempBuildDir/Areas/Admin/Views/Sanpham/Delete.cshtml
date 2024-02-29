@@ -1,0 +1,40 @@
+﻿@model LTW_FFOOD.Models.Food
+
+@{
+    ViewBag.Title = "Xóa sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Xóa món ăn</h2>
+<form action="/Admin/Sanpham/Delete/@Model.food_id" method="post">
+    <input type="hidden" name="food_id" value="@Model.food_id" />
+    <table class="table">
+        <tr>
+            <th>Id Món</th>
+            <td>@Model.food_id</td>
+        </tr>
+        <tr>
+            <th>Tên món</th>
+            <td>@Model.food_name</td>
+        </tr>
+        <tr>
+            <th>Id loại món</th>
+            <td>@Model.id_catagory</td>
+        </tr>
+        <tr>
+            <th>Giá</th>
+            <td>@Model.price.ToString("#,##0")</td>
+        </tr>
+        <tr>
+            <th>Mô tả</th>
+            <td>@Model.description</td>
+        </tr>
+        <tr>
+            <th>Hình ảnh</th>
+            <td> <img style="width:200px;height:150px" src="~/image/@Model.image" /></td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-info" style="margin:20px 0px;">Delete</button>
+    <a href="/Admin/Sanpham/sanpham" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+</form>
+

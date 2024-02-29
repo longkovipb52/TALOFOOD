@@ -1,0 +1,116 @@
+﻿<style>
+   
+    .row {
+        min-width:1000px;
+    }
+
+        .row .contact-form {
+            width: 50%;
+        }
+    .row .map-form{
+        width:50%;
+    }
+    .row h1{
+        text-align:center;
+        padding:20px 0;
+    }
+    .form-group {
+        font-size: 28px;
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    }
+    .form-control {
+        font-size: 28px;
+        border: 0;
+        outline: none;
+        -moz-box-shadow: 0 5px 20px 0 rgba(250,66,81,.1);
+        box-shadow: 0 10px 30px 0 rgb(189, 89, 212);
+    }
+    button[type="submit"] {
+        margin: 0 auto;
+        display: block;
+    }
+    .map-form iframe {
+        border: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 100%;
+        height:100%;
+    }
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid;
+        padding: 30px; 
+        max-width: 425px; 
+        margin: 0 auto; 
+        background-color:lightpink;
+    }
+    .header-contact {
+        color: #ff6a00;
+        text-align: center;
+        font-size: 40px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        font-family: 'MergeBlack',sans-serif;
+        text-transform: uppercase;
+    }
+    .wrapper-header-box-left {
+        padding: 0px 110px;
+        font-family: 'MergeBlack',sans-serif;
+        font-size: 24px;
+    }
+    .header-contact h1{
+        font-weight:bold;
+    }
+    .header-box-left {
+        padding-bottom: 15px;
+    }
+    .col-12{
+        margin-left:-340px;
+    }
+</style>
+@if(TempData["ThongBaoThanhCong"] != null)
+{
+    <div class="alert alert-success" style="text-align:center" >
+        @TempData["ThongBaoThanhCong"]
+    </div>
+}
+@if(TempData["ThongBaoLoi"] != null)
+{
+    <div class="alert alert-danger" style="text-align:center">
+        @TempData["ThongBaoLoi"]
+    </div>
+}
+    <form action="/Contact/themlienhe" method="post" class="row" style="margin-top:150px;">
+        <div class="header-contact">
+            <h1 class=" text-center">Contact Us</h1>
+        </div>
+        
+        <div class="contact-form col-lg-6 col-md-12 mb-4 mb-md-0">
+            
+
+            <div class="form-group  ">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control " id="Message" name="Message" rows="4" placeholder="Message" style=" width: 343px;
+    height: 63px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Send</button>
+
+        </div>
+        <div class="map-form col-lg-6 col-md-12 mb-4 mb-md-0">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.6275834820713!2d106.67144857365858!3d10.991457355193393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d11e65beedef%3A0x331844c85c8c91b1!2zMTc5IEh14buzbmggVsSDbiBMxal5LCBQaMO6IEzhu6NpLCBUaOG7pyBE4bqndSBN4buZdCwgQsOsbmggRMawxqFuZyA3MDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1698834504128!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                
+        </div>
+    </form>
+
+
+

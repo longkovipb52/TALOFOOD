@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*<link href="~/Areas/Admin/Assets/css.css" rel="stylesheet" />*@
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+   <style>
+       body {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           font-family: 'Young','Serif';
+           cursor: pointer;
+           display:flex;
+           flex-direction:column;
+           min-height:100vh;
+       }
+        .wrapper {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar-nav .nav-link {
+            color: black;
+        }
+        .navbar-nav .navbar-item h1{
+            font-weight:bold;
+        }
+
+        .wp-content {
+            display: flex;
+            min-height: 100vh;
+            border-top: 2px solid black;
+        }
+        .col-9 h{
+            margin:20px;
+        }
+        .content {
+            width: 70%;
+            margin-left:20px;
+        }
+
+        .sidebar {
+            width: 30%;
+            background-color: blanchedalmond;
+            border-right: 2px solid black;
+        }
+
+            .sidebar ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                
+            }
+
+           .sidebar li {
+               flex: 1;
+               border-bottom: 2px solid black;
+           }
+            .sidebar li a{
+                text-decoration:none;
+                text-align:center;
+            }
+            .sidebar h5{
+                font-size:19px;
+                font-weight:bold;
+            }
+            .sidebar .item-link{
+                font-size:24px;
+            }
+       .dropdown-menu .dropdown-item{
+           font-size:16px;
+       }
+       .dropdown-menu .dropdown-item:hover {
+           background-color: darkgray;
+       }
+       .action {
+           margin-left: 9px;
+           border-left: 1px solid rgb(128, 128, 128);
+           text-align: center;
+       }
+
+           .action .action-item {
+               margin-left: 5px;
+           }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+            <a class="nav-logo text-decoration-none col-1 " href="/Home/Trangchu">
+                <img src="~/image/fast-food.png" />
+            </a>
+            <div class="col-9">
+                <ul class="navbar-nav">
+                    <li class="navbar-item"><h1> ADMIN </h1></li>
+                </ul>
+            </div>
+            @if (Session["Username"] != null)
+            {
+                string fullname = Session["Username"].ToString();
+                string[] tachten = fullname.Split(' ');
+                string firstname = tachten[0];
+                string lastname = tachten[tachten.Length - 1];
+                <div class="action" style="display:flex;">
+                    <div class="action-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="~/image/user (2).png" />Welcome, @lastname!
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/Dangnhap/Dangxuat">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="action" style="display:flex;">
+                    <div class="action-item"><a class="nav-link" href="/Dangnhap/Login" style="margin-left:22px;"><img src="~/image/user (2).png" />Đăng nhập</a></div>
+                </div>
+            }
+        </nav>
+        @*end navbar*@
+        <div class="wp-content">
+            <div class="sidebar">
+                <ul>
+                    <li><h5><img src="~/image/admin.png" /><a class="item-link" href="/Admin/Taikhoan/taikhoan"> Quản lý tài khoản </a></h5></li>
+                    <li><h5><img src="~/image/admin.png" /><a class="item-link" href="/Admin/LoaiSanPham/loaisanpham"> Quản lý loại sản phẩm </a></h5></li>
+                    <li><h5><img src="~/image/admin.png" /><a class="item-link" href="/Admin/Sanpham/sanpham"> Quản lý sản phẩm </a></h5></li>
+                    <li><h5><img src="~/image/admin.png" /><a class="item-link" href="/Admin/DonHang/donhang"> Quản lý đơn hàng </a></h5></li>
+                    <li><h5><img src="~/image/admin.png" /><a class="item-link" href="/Admin/LienHe/lienhe"> Quản lý thông tin liên hệ </a></h5></li>
+                </ul>
+            </div>
+            <div class="content">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b7d63c2b9d341e1b0a1003957c1588b" Name="Diagram1">
+        <EntityTypeShape EntityType="LTWEB_FFoodModel.Bill_info" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LTWEB_FFoodModel.Role" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LTWEB_FFoodModel.Language" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="LTWEB_FFoodModel.Contact" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="LTWEB_FFoodModel.Food" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="LTWEB_FFoodModel.Food_Catagory" Width="1.5" PointX="0.75" PointY="5.375" />
+        <AssociationConnector Association="LTWEB_FFoodModel.FK_Bill_info_Food" />
+        <AssociationConnector Association="LTWEB_FFoodModel.FK_Food_Food_Catagory" />
+        <EntityTypeShape EntityType="LTWEB_FFoodModel.Account" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="LTWEB_FFoodModel.FK_Account_Role" />
+        <AssociationConnector Association="LTWEB_FFoodModel.FK_Bill_info_Account" />
+        <EntityTypeShape EntityType="LTWEB_FFoodModel.Bill" Width="1.5" PointX="5.25" PointY="1.125" />
+        <AssociationConnector Association="LTWEB_FFoodModel.FK_Bill_Account" />
+        <AssociationConnector Association="LTWEB_FFoodModel.FK_Bill_info_Bill" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

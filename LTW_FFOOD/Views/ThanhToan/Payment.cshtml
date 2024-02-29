@@ -1,0 +1,43 @@
+﻿@model LTW_FFOOD.Models.CartModel
+
+<div>
+    <h2>Thông Tin Đơn Hàng</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th> Mã sản phẩm</th>
+                <th>Tên</th>
+                <th>Hình ảnh</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Thành tiền</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Items != null)
+            {
+                foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@item.foods.food_id</td>
+                        <td>@Html.DisplayFor(model => item.foods.food_name)</td>
+                        <td>
+                            <img src="@Url.Content("~/image/" + item.foods.image)" style="height:100px;width:100px;" />
+                        </td>
+                        <td>@item._count.ToString("#,##0")</td>
+                        <td>@item.foods.price.ToString("#,##0")</td>
+                        <td>@((item.foods.price * item._count).ToString("#,##0"))</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <p>Không có mặt hàng nào ở đây.</p>
+            }
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+</div>

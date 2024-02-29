@@ -1,0 +1,36 @@
+﻿@model LTW_FFOOD.Models.Food
+
+@{
+    ViewBag.Title = "Thêm mới sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Thêm món mới</h2>
+<form action="/Admin/Sanpham/Themmoi" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="food_name">Tên món</label>
+            <input type="text" class="form-control" id="food_name" name="food_name" required>
+        </div>
+        <div class="col-md-6">
+            <label for="id_catagory">ID loại món</label>
+            <input type="text" class="form-control" id="id_catagory" name="id_catagory" required>
+        </div>
+        <div class="col-md-6">
+            <label for="price">Giá</label>
+            <input type="text" class="form-control" id="price" name="price" required>
+        </div>
+        <div class="col-md-6">
+            <label for="description">Mô tả</label>
+            <input type="text" class="form-control" id="description" name="description" required>
+        </div>
+        <div class="col-md-6">
+            <label for="image">Hình ảnh</label>
+            <input type="file" class="form-control" id="image" name="image" accept=".jpg, .jpeg, .png" required>
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin:20px 0px;">Thêm món mới</button>
+    <a href="/Admin/Sanpham/sanpham" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+</form>
+

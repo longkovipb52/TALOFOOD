@@ -1,0 +1,586 @@
+﻿@model LTW_FFOOD.Models.FoodViewModel
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+       #banner{
+           width:1332px;
+           background-image:url("/image/banner1.jpg") ;
+           background-size:1332px;
+           object-fit:cover;
+           background-repeat:no-repeat;
+           height:600px;
+           display:flex;
+           padding: 0 10%;
+       }
+       .box-left,.box-right{
+           width:50%;
+       }
+       .box-left h2{
+            font-size:48px;
+            margin-top:75px;
+            color:#fff;
+       }
+       .box-left button{
+           width:150px;
+           height:30px;
+           margin-top:41px;
+           font-weight:bold;
+           border-radius:15px;
+           transition:0.4s;
+           color:#fff;
+       }
+       .box-left p{
+           color:#D0D0D0;
+       }
+       #banner .box-right{
+           padding-left:10%;
+           display:flex;
+           justify-content:center;
+           align-items:center;
+
+       }
+       .box-right img{
+           margin:0 10px;
+           animation: animation 3s infinite linear;
+           width:100px;
+           height:250px;
+           object-fit:cover;
+           border-radius:20px;
+       }
+       #banner .box-right img:nth-child(1){
+           animation-delay:0.5s;
+       }
+       #banner .box-right img:nth-child(2){
+           animation-delay:1s;
+       }
+       @@keyframes animation{
+           0%{
+               transform:translateY(0px);
+           }
+           50%{
+               transform:translateY(-10px);
+           }
+           100%{
+               transform:translateY(0px);   
+           }
+        }
+       .to-bottom{
+           position:absolute;
+           bottom:-20px;
+           left:50%;
+           transform:translateX(-50%);
+       }
+        #wp-products {
+            padding: 50px 10% 30px 10%;
+        }
+        #wp-products h2{
+            text-align:center;
+            margin-bottom:50px;
+            font-size:32px;
+            color: #626a67;
+        }
+        #list-products{
+            display:flex;
+            list-style:none;
+            justify-content:space-around;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+        #list-products .item{
+            width:290px;
+            height:374px;
+            background:#362f2f;
+            border-radius:10px;
+            margin-bottom:30px;
+        }
+        #list-products .item img
+        {
+            width:238px;
+            height:206px;
+            display:block;
+            margin: 0px auto;
+            margin-top:17px;
+            transition: transform 0.3s ease;
+        }
+            #list-products .item img:hover{
+                transform:scale(1.1);
+            }
+
+            #list-products .item .name {
+                text-align: center;
+                color: #fff;
+                font-weight: bold;
+                margin-top: 15px;
+                text-transform:uppercase;
+            }
+            .name a{
+                text-decoration:none;
+            }
+        #list-products .item .desc{
+            text-align:center;
+            color:#626a67;
+        }
+        #list-products .item .price{
+            text-align:center;
+            color: #f42424;
+            font-weight:bold;
+        }
+        #list-products .item .stars {
+            display: flex;
+            margin: -7px 106px;
+            width: 50%;
+        }
+        #list-products .item .stars img{
+            max-height:16px;
+            max-width:16px;
+        }
+        .order-button {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+            .order-button a {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #28a745;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+                .order-button a:hover {
+                    background-color: #218838;
+                }
+
+            .order-button a {
+                background-color: yellow;
+                color: #000000;
+                width: 150px;
+                height: 45px;
+                font-size: 18px;
+            }
+        #comment {
+            width: 1012px;
+            height: 478px;
+            margin: 0px auto;
+            margin-top: 24px;
+            margin-bottom: 50px;
+        }
+
+            #comment h2 {
+                text-align: center;
+                margin-bottom: 50px;
+                font-size: 32px;
+                color: #626a67;
+            }
+
+
+        #comment-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1000px;
+            height: 400px;
+            list-style: none;
+            overflow: hidden;
+            display: flex;
+            flex: 0 0 auto;
+        }
+
+        #list-comment {
+            width: 100%;
+            height: 100%;
+            list-style: none;
+            transition: 0.5s;
+        }
+
+            #list-comment .item {
+                width: 100%;
+                height: 100%;
+                background: #362f2f;
+                border-radius: 20px;
+                padding-top: 50px;
+            }
+
+                #list-comment .item .avatar {
+                    text-align: center;
+                    margin-top: 13px;
+                }
+
+                #list-comment .item .stars {
+                    display: flex;
+                    margin: 0px auto;
+                    width: 50%;
+                    margin-top: 32px;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #list-comment .item .name {
+                    text-align: center;
+                    font-weight: bold;
+                    color: #fff;
+                }
+
+                #list-comment .item .text {
+                    padding: 20px 50px;
+                    color: #fff;
+                }
+                .section-title{
+                    align-items:center;
+                    display:flex;
+                    flex-flow:row wrap;
+                    justify-content:space-between;
+                    width:100%;
+                }
+                .section-title b{
+                    background-color:currentColor;
+                    display:block;
+                    flex:1;
+                    height:2px;
+                    opacity:0.1;
+                    font-weight:bolder;
+                }
+                .section-title-center span{
+                    text-align:center;
+                    margin:0 15px;
+                }
+        .show-more {
+            margin: 21px 1px;
+            width: 100%;
+            text-align: center;
+            padding: 21px 1px;
+        }
+
+            .show-more a {
+                font-weight: 600;
+            }
+                
+        /*#section1 {
+            padding-top: 40px;
+            padding-bottom:40px;
+            margin-bottom:-15px;
+            
+            
+        }
+        .section{
+            padding:30px 0;
+            position:relative;
+            width:100%;
+            display:flex;
+            -webkit-box-orient:horizontal;
+            -webkit-animation-direction:normal;
+            -ms-flex-flow:row;
+            -webkit-box-align:center;
+            -ms-flex-align:center;
+            align-items:center;
+            min-height:initial;
+        }
+        .bg-loaded{
+            opacity:1;
+        }
+        .bg{
+            opacity:0;
+            transition:opacity 1s;
+            -webkit-transition: opacity 1s;
+        }
+        .bg-fill{
+            background-size:cover!important;
+            background-repeat:no-repeat;
+            background-position:50% 50%;
+        }
+        .fill{
+            position:absolute;
+            top:0;
+            left:0;
+            height:100%;
+            right:0;
+            bottom:0;
+            padding:0!important;
+            margin:0!important;
+        }
+        .section-bg{
+            width:100%;
+            overflow:hidden;
+
+        }
+        .relative{
+            position:relative!important;
+        }
+        .section-content{
+            z-index:1;
+        }
+        .row .row-small{
+            max-width:1162.5px;
+        }
+        .row .row-grid{
+            display:block;
+        }
+        #banner-grid-banner .grid-col-1{
+            height:415px;
+        }
+        .col, .row .row-grid>.col{
+            float:left;
+        }
+        .col:first-child .col-inner{
+            margin-left:auto;
+            margin-right:0;
+        }
+        .grid-col>.col.col-inner{
+            height:100%;
+        }
+        .col-inner{
+            position:relative;
+            width:100%;
+            background-position:50% 50%;
+            background-size:cover;
+            background-repeat:no-repeat;
+            -webkit-box-flex:1;
+            -ms-flex: 1 0 auto;
+            flex:1 0 auto;
+        }
+        #image_image1, #image_2,#image_3,#image_image4{
+            width:100%;
+        }
+        .grid-col-1-2{
+            height:207.5px;
+        }
+        .col, .row.row-grid>.col{
+            float:left;
+        }
+        .col+.col .col-inner{
+            margin-right:auto;
+            margin-left:0;
+        }
+        .grid-col>.col-inner{
+            height:100%;
+        }
+       .img-inner img{
+           transition:transform 0.3s ease;
+       }
+       .img-inner img:hover{
+           transform:scale(1.1);
+       }*/
+        
+    </style>
+</head>
+<div id="wrapper" style="margin-top:150px;">
+    <div class="banner-content" style="text-align:center;margin:25px 0;">
+        <h2>
+            ĐẶT ĐỒ ĂN VẶT ONLINE-GIAO HÀNG MIỄN PHÍ-GỌI NGAY 0367547809
+        </h2>
+    </div>
+    <div id="banner">
+        <div class="box-left">
+            <h2>
+                <span>THỨC ĂN</span>
+                <br>
+                <span>THƯỢNG HẠNG</span>
+            </h2>
+            <p>
+                Chuyên cung cấp các món ăn đảm bảo dinh dưỡng
+                hợp vệ sinh đến người dùng,phục vụ người dùng 1 cái
+                hoàn hảo nhất
+            </p>
+            <a class="button btn btn-warning" href="/Product/Sanphamtheoloai">Mua ngay</a>
+        </div>
+        <div class="box-right">
+            <img class="bg-1" src="~/image/img_1.png" alt="">
+            <img class="bg-2" src="~/image/img_2.png" alt="" style="height:335px;">
+            <img class="bg-3" src="~/image/img_3.png" alt="">
+        </div>
+        <div class="to-bottom">
+            <a href="">
+                <img src="~/image/to_bottom.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="container section-title container" style="margin-top:30px;padding-left:0px;padding-right:0px;">
+        <h1 class="section-title section-title-center">
+            <b></b>
+            <span class="section-title-main">
+                CỬA HÀNG CỦA CHÚNG TÔI
+            </span>
+            <b></b>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="margin-left:0px;margin-right:auto;">
+            <h2 style="text-align:center;font-weight:700;font-style:normal;">Ăn Vặt TALOFOOD chúng tôi luôn mang đến khách hàng những món ăn vặt ngon lạ vì chúng tôi mong rằng sự ngon miệng của quý khách là niềm vui vẻ của TALOFOOD chúng tôi!</h2>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    @*<section class="section" id="section1">
+            <div class="bg section-bg fill bg-fill bg-loaded "></div>
+            <div class="section-content relative">
+                <div class="banner-grid-wrapper">
+                    <div id="banner-grid-banner" class="banner-grid row row-grid row-small" data-packery-options style="position:relative;height:415px;left:100px;">
+                        <div class="col grid-col large-6 grid-col-1" style="position:absolute;left:0;top:0;">
+                            <div class="col-inner">
+                                <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_image1">
+                                    <div class="img-inner image-zoom dark">
+                                        <img width="570" height="425" src="~/image/big_1.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col grid-col large-3 grid-col-1-2" style="position:absolute;left:581px;top:0px;">
+                            <div class="col-inner">
+                                <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_2">
+                                    <div class="img-inner image-zoom dark">
+                                        <img width="272" height="213" src="~/image/big_3.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col grid-col large-3 grid-col-1-2" style="position:absolute;left:871px;top:0px;">
+                            <div class="col-inner">
+                                <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_3">
+                                    <div class="img-inner image-zoom dark">
+                                        <img width="267" height="210" src="~/image/big_2.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col grid-col large-6 grid-col-1-2" style="position:absolute;left:583px;top:219px;">
+                            <div class="col-inner">
+                                <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_image4">
+                                    <div class="img-inner image-zoom dark">
+                                        <img width="555" height="207" src="~/image/big_4.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        </section>*@
+    <div id="wp-products">
+        @foreach (var category in Model.Categories)
+        {
+            <h2>@category.foodcategory_name</h2>
+            <ul id="list-products">
+
+                @foreach (var food in Model.Foods.Where(f => f.id_catagory == category.foodcatagory_id))
+                {
+                    <div class="item">
+                        <img src="@Url.Content("~/image/" + food.image)" alt="@food.food_name" style="max-height:206px;max-width:238px;" />
+                        <div class="stars">
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                        </div>
+                        <div class="name"> @Html.ActionLink(food.food_name, "Chitietsanpham", "Product", new { @id = food.food_id }, null)</div>
+                        <div class="price">@food.price.ToString("#,##0")đ</div>
+                        <div class="order-button">
+                            @Html.ActionLink("🛒 Đặt Hàng", "Addtocart", "ShoppingCart", new { @id = food.food_id }, new { @class = "btn btn-success" })
+                        </div>
+                    </div>
+                }
+
+            </ul>
+             <div class="show-more">
+                    @Html.ActionLink("Xem tất cả", "SanphamtheoloaitheoID", "Product", new { @id = category.foodcatagory_id }, new { @class = "btn btn-primary" })
+                </div>
+        }
+
+
+    </div>
+    <div id="comment">
+        <h2>NHẬN XÉT CỦA KHÁCH HÀNG</h2>
+        <div id="comment-body">
+            <div class="prev">
+                <a href="#">
+                    <img src="~/image/upload.png" alt="">
+                </a>
+            </div>
+            <ul id="list-comment">
+                @foreach (var item in Model.Contacts)
+                {
+                    <li class="item">
+                        <div class="avatar">
+                            <img src="~/image/review.png" alt="">
+                        </div>
+                        <div class="stars">
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="~/image/star.png" alt="">
+                            </span>
+                        </div>
+                        <div class="name">@item.name</div>
+                        <div class="text">
+                            <p>
+                                @item.Message
+                            </p>
+                        </div>
+                    </li>
+
+                }
+            </ul>
+            <div class="next" style="margin-left:20px;">
+                <a href="#">
+                    <img src="~/image/down.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const next = document.querySelector('.next')
+    const prev = document.querySelector('.prev')
+    const comment = document.querySelector('#list-comment')
+    const commentItem = document.querySelectorAll('#list-comment .item')
+    var translateY = 0
+    var count = commentItem.length
+
+    next.addEventListener('click', function (event) {
+        event.preventDefault()
+        if (count == 1) {
+            // Xem hết bình luận
+            return false
+        }
+        translateY += -400
+        comment.style.transform = `translateY(${translateY}px)`
+        count--
+    })
+
+    prev.addEventListener('click', function (event) {
+        event.preventDefault()
+        if (count == 3) {
+            // Xem hết bình luận
+            return false
+        }
+        translateY += 400
+        comment.style.transform = `translateY(${translateY}px)`
+        count++
+    })
+</script>

@@ -1,0 +1,39 @@
+﻿.wrapper {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-nav .nav-link {
+    color: black;
+}
+
+.wp-content {
+    display: flex;
+    min-height: 500px;
+}
+
+.content {
+    width: 70%;
+    background-color: aqua;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: blanchedalmond;
+}
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar li {
+        flex: 1;
+    }
+
+        .sidebar li a {
+            text-decoration: none;
+        }

@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>admin</title>
+    <style>
+        .container-fluid{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        .navbar-nav .nav-link{
+            color:black;
+        }
+        .wp-content{
+            display:flex;
+            padding:15px 0;
+        }
+        .sidebar {
+            width: 30%;
+            padding: 20px;
+            
+        }
+        .content{
+            width:70%;
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+                <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+            <a class="nav-logo text-decoration-none " href="/Home/Trangchu">
+                <img src="~/image/fast-food.png" />
+            </a>
+            <div class="co
+l-8">
+                <ul class="navbar-nav">
+                    <li class="navbar-item">
+                        <a class="nav-link" href="/home">Trang chủ</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="/Product/product">Sản phẩm</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="/User/User"> Người Dùng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Kho/kho">Kho hàng</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+               @*end navbar*@
+                <div class ="wp-content">
+                    <div class="sidebar">
+                        <ul>
+                            <li> <a href="#">Quản lý tài khoản</a></li>
+                            <li> <a href="#">Quản lý món ăn</a></li>
+                            <li> <a href="#">Quản lý đơn hàng</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="content">
+
+                    </div>
+                </div>
+    </div>
+</body>
+</html>

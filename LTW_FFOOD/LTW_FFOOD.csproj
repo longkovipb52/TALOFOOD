@@ -1,0 +1,493 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E5FAFFC2-3C9D-4C72-96F3-F9D4B8896212}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LTW_FFOOD</RootNamespace>
+    <AssemblyName>LTW_FFOOD</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bootstrap.Pagination, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bootstrap.Pagination.1.0.10\lib\net451\Bootstrap.Pagination.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Pagination, Version=3.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pagination.3.0.0.3\lib\net45\Pagination.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="image\324149785.jpg" />
+    <Content Include="image\7up.jpg" />
+    <Content Include="image\admin.png" />
+    <Content Include="image\background.jpg" />
+    <Content Include="image\banhbao.jpg" />
+    <Content Include="image\banhmi.jpg" />
+    <Content Include="image\banhmithitcha.jpg" />
+    <Content Include="image\banner3.jpg" />
+    <Content Include="image\banner4.jpg" />
+    <Content Include="image\banner5.jpg" />
+    <Content Include="image\big_1.png" />
+    <Content Include="image\big_2.png" />
+    <Content Include="image\big_3.png" />
+    <Content Include="image\big_4.png" />
+    <Content Include="image\big_5.png" />
+    <Content Include="image\big_6.jpg" />
+    <Content Include="image\burger.png" />
+    <Content Include="image\burger_ga_cajun.jpg" />
+    <Content Include="image\chacarongbien.jpg" />
+    <Content Include="image\chat.png" />
+    <Content Include="image\checked.png" />
+    <Content Include="image\coca.jpg" />
+    <Content Include="image\combo-la-gi-1.jpg" />
+    <Content Include="image\delivery.png" />
+    <Content Include="image\do-uong-healthy-0.jpg" />
+    <Content Include="image\doannhand.jpg" />
+    <Content Include="image\ellipsis.png" />
+    <Content Include="image\email.png" />
+    <Content Include="image\empty-cart-icon.png" />
+    <Content Include="image\facebook.png" />
+    <Content Include="image\fast-food-meal-set-vector.jpg" />
+    <Content Include="image\fast-food-meal-set-vector.png" />
+    <Content Include="image\fast-food.png" />
+    <Content Include="image\food-truck.png" />
+    <Content Include="image\foodbanner.jpg" />
+    <Content Include="image\foodbanner2.jpg" />
+    <Content Include="image\hamburger.jpg" />
+    <Content Include="image\hero-bg.jpg" />
+    <Content Include="image\hinh1.jpg" />
+    <Content Include="image\hinh2.jpg" />
+    <Content Include="image\hinh3.jpg" />
+    <Content Include="image\home.png" />
+    <Content Include="image\icon1.PNG" />
+    <Content Include="image\icon3.PNG" />
+    <Content Include="image\icon4.PNG" />
+    <Content Include="image\icon5.PNG" />
+    <Content Include="image\images %281%29_preview_rev_1.png" />
+    <Content Include="image\img_1.png" />
+    <Content Include="image\img_2.png" />
+    <Content Include="image\img_3.png" />
+    <Content Include="image\information.png" />
+    <Content Include="image\khoaitaychien.jpg" />
+    <Content Include="image\list.png" />
+    <Content Include="image\magnifying-glass %281%29.png" />
+    <Content Include="image\mediterranean-cuisine-2378758_1280.jpg" />
+    <Content Include="image\menu.png" />
+    <Content Include="image\mixaobo.jpg" />
+    <Content Include="image\next.png" />
+    <Content Include="image\notification.png" />
+    <Content Include="image\order-food.png" />
+    <Content Include="image\pepsi.jpg" />
+    <Content Include="image\phone.png" />
+    <Content Include="image\photo-1546069901-ba9599a7e63c.png" />
+    <Content Include="image\pizza.jpg" />
+    <Content Include="image\pngtree-fast-food-icons-set-outline-style-png-image_2032922.jpg" />
+    <Content Include="image\prev.png" />
+    <Content Include="image\product_1.png" />
+    <Content Include="image\product_2.png" />
+    <Content Include="image\product_3.png" />
+    <Content Include="image\product_4.png" />
+    <Content Include="image\product_5.png" />
+    <Content Include="image\product_6.png" />
+    <Content Include="image\review.png" />
+    <Content Include="image\search.png" />
+    <Content Include="image\search1.png" />
+    <Content Include="image\search2.png" />
+    <Content Include="image\send.png" />
+    <Content Include="image\shopping-cart.png" />
+    <Content Include="image\snackmuc.jpg" />
+    <Content Include="image\star.png" />
+    <Content Include="image\sting.jpg" />
+    <Content Include="image\StyleSheet1.css" />
+    <Content Include="image\Trachanh.jpg" />
+    <Content Include="image\Tradao.jpg" />
+    <Content Include="image\tratao.jpg" />
+    <Content Include="image\tải xuống %289%29.jpg" />
+    <Content Include="image\user %282%29.png" />
+    <Content Include="image\z4658772974115_e998e6bbff1fde39e76a17f0a37aeb89_preview_rev_1 %281%29.png" />
+    <Content Include="image\zyro-image %282%29.png" />
+    <Content Include="image\_0daf8938-a671-4234-8962-2381407e5b65.jpg" />
+    <Content Include="Areas\Admin\Assets\css.css" />
+    <Content Include="Assets\css\Cart.css" />
+    <Content Include="Assets\css\Contact.css" />
+    <Content Include="Assets\css\formuser.css" />
+    <Content Include="Assets\css\Layout.css" />
+    <Content Include="Assets\css\Trangchu2.css" />
+    <Content Include="Assets\css\Login.css" />
+    <Content Include="Assets\css\Product.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\order.html" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="image\—Pngtree—search icon_4490393.png" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Sanpham\sanpham.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Sanpham\Themmoi.cshtml" />
+    <Content Include="Areas\Admin\Views\Sanpham\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sanpham\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Taikhoan\taikhoan.cshtml" />
+    <Content Include="Areas\Admin\Views\Taikhoan\ThemmoiTK.cshtml" />
+    <Content Include="Areas\Admin\Views\Taikhoan\EditTK.cshtml" />
+    <Content Include="Areas\Admin\Views\Taikhoan\DeleteTK.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\donhang.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\EditDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\DeleteDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\LienHe\lienhe.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPham\loaisanpham.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPham\Themmoiloai.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPham\Deleteloai.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongKe\thongke.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - FTP1.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - FTP2.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - FTP3.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - FTP4.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - FTP5.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - Web Deploy2.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - Web Deploy3.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - Web Deploy4.pubxml" />
+    <None Include="Properties\PublishProfiles\nguyenvanlong-001-site1 - Web Deploy5.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\history.js\amplify.store.js" />
+    <Content Include="Scripts\history.js\history.adapter.dojo.js" />
+    <Content Include="Scripts\history.js\history.adapter.jquery.js" />
+    <Content Include="Scripts\history.js\history.adapter.mootools.js" />
+    <Content Include="Scripts\history.js\history.adapter.prototype.js" />
+    <Content Include="Scripts\history.js\history.adapter.yui.js" />
+    <Content Include="Scripts\history.js\history.adapter.zepto.js" />
+    <Content Include="Scripts\history.js\history.html4.js" />
+    <Content Include="Scripts\history.js\history.js" />
+    <Content Include="Scripts\history.js\json2.js" />
+    <Content Include="Scripts\history4mvc.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="template\neworder.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LienHeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiSanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanphamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TaikhoanController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThongKeController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminHoaDonViewModel.cs" />
+    <Compile Include="Common\MailHelper.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\DangNhap2Controller.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DangnhapController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ThanhToanController.cs" />
+    <Compile Include="Controllers\ThongTinKhachHangController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bill.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bill_info.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartModel.cs" />
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Food.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FoodViewModel.cs" />
+    <Compile Include="Models\Food_Catagory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KhachHangDonHangViewModel.cs" />
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaypalConfiguration.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HoaDonViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Trangchu.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Contact\contact.cshtml" />
+    <Content Include="Views\Dangnhap\Login.cshtml" />
+    <Content Include="Views\Product\Sanphamtheoloai.cshtml" />
+    <Content Include="Views\Product\SanphamtheoloaitheoID.cshtml" />
+    <Content Include="Views\Product\Chitietsanpham.cshtml" />
+    <Content Include="Views\ShoppingCart\ShowCart.cshtml" />
+    <Content Include="Views\DangNhap2\Login2.cshtml" />
+    <Content Include="Views\ThanhToan\ThanhToanKhongCanDangNhap.cshtml" />
+    <Content Include="Views\ThanhToan\Thanhtoanthanhcong.cshtml" />
+    <Content Include="Views\ThanhToan\Payment.cshtml" />
+    <Content Include="Views\AboutUs\aboutus.cshtml" />
+    <Content Include="Views\ThanhToan\HienThiHoaDon.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\ThanhToan\GioHang.cshtml" />
+    <Content Include="Views\ThanhToan\FailureView.cshtml" />
+    <Content Include="Views\ShoppingCart\FailureView.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage2.cshtml" />
+    <Content Include="Views\Shared\_History4MVC.cshtml" />
+    <Content Include="Views\Shared\Pagination.cshtml" />
+    <Content Include="Views\Shared\Pager.cshtml" />
+    <Content Include="Views\Product\Timkiemsanpham.cshtml" />
+    <Content Include="Views\Dangnhap\DangKy.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\AboutUs\index.cshtml" />
+    <Content Include="Views\ThongTinKhachHang\Thongtin.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StaticResources\StaticResources.csproj">
+      <Project>{a65d7a50-a166-4fb6-bb8e-18dba98ece4d}</Project>
+      <Name>StaticResources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4006</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4006/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

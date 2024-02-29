@@ -1,0 +1,123 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<LTW_FFOOD.Models.Bill>
+@{
+    ViewBag.Title = "donhang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<style>
+    .table th {
+        background-color: lightpink;
+    }
+
+    .table td {
+        text-align: center;
+        font-weight:600;
+    }
+
+    .pagination {
+        margin: 20px 0;
+    }
+
+        .pagination a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #007bff;
+            margin: 2px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .pagination .pagination-container {
+            margin-left: 350px;
+        }
+
+        .pagination a:hover {
+            background-color: #007bff;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .pagination .active a {
+            background-color: #007bff;
+            color: white;
+            transform: scale(1.1);
+        }
+</style>
+<h2>Quản Lý Đơn Hàng</h2>
+<form class="d-flex flex-row align-items-center col-10 flex-wrap" action="/Admin/DonHang/donhang" style="margin-bottom:20px;">
+    <label for="search" class="mx-2 my-1">Search</label>
+    <input type="search"
+           class="form-control w-auto"
+           id="search"
+           name="search"
+           placeholder="Search" />
+    <button type="submit" class="btn btn-primary mx-2">Tìm</button>
+</form>
+<table class="table table-bordered">
+    <tr>
+        <th>ID Bill</th>
+        <th>Ngày đặt</th>
+        <th>Ngày giao</th>
+        <th>ID khách hàng</th>
+        <th>Địa chỉ</th>
+        <th>Trạng thái</th>
+        <th>    </th>
+    </tr>
+    @if (Model != null && Model.Any())
+    {
+        var i = 1;
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.bill_id</td>
+                    <td>@item.ngaydat</td>
+                    <td>@item.ngaygiao</td>
+                    <td>@item.id_account</td>
+                    <td>@item.address</td>
+                    <td>
+                        @item.status
+                        @if(item.status == "Đã giao")
+                        {
+                            <img src="~/image/checked.png" />
+                        }
+                        else if(item.status == "Chưa xử lý")
+                        {
+                            <img src="~/image/list.png" />
+                        }
+                        else
+                        {
+                            <img src="~/image/delivery.png" />
+                        }
+
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditDonHang", "DonHang", new { idbill = item.bill_id })" class="btn btn-info">Edit</a>
+                        <a href="@Url.Action("DeleteDonHang", "DonHang", new { idbill = item.bill_id })" class="btn btn-info">Delete</a>
+
+                    </td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    }
+
+</table>
+<div class="pagination">
+    @Html.PagedListPager(Model, page => Url.Action("donhang", new { page, pagesize = Model.PageSize, search = Request.QueryString["search"] }),
+        new PagedListRenderOptions() {
+            LinkToFirstPageFormat = "<<",
+            LinkToPreviousPageFormat = "<",
+            LinkToNextPageFormat = ">",
+            LinkToLastPageFormat = ">>",
+            UlElementClasses = new string[] { "pagination" }, // Sử dụng class 'pagination' của Bootstrap
+            ClassToApplyToFirstListItemInPager = "page-item", // Sử dụng class 'page-item' của Bootstrap
+            ClassToApplyToLastListItemInPager = "page-item", // Sử dụng class 'page-item' của Bootstrap
+            DisplayLinkToNextPage = PagedListDisplayMode.Always, // Sử dụng class 'page-link' của Bootstrap
+          DisplayLinkToPreviousPage = PagedListDisplayMode.Always, // Sử dụng class 'page-link' của Bootstrap
+          DisplayLinkToLastPage = PagedListDisplayMode.Always, // Sử dụng class 'page-link' của Bootstrap
+         DisplayLinkToFirstPage = PagedListDisplayMode.Always, // Sử dụng class 'page-link' của Bootstrap
+    })
+</div>

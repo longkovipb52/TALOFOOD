@@ -1,0 +1,61 @@
+﻿@model LTW_FFOOD.Models.Account
+
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Chỉnh Sửa</h2>
+<form action="/Admin/Taikhoan/EditTK/@Model.account_id" method="post">
+    <input type="hidden" name="account_id" value="@Model.account_id" />
+    <div class="row">
+        <div class="col-md-6">
+            <label for="username">Tên người dùng</label>
+            <input type="text"
+                   class="form-control"
+                   id="username"
+                   name="username"
+                   placeholder="Tên Món"
+                   value="@Model.username" />
+        </div>
+        <div class="col-md-6">
+            <label for="password">Mật khẩu</label>
+            <input type="text"
+                   class="form-control"
+                   id="password"
+                   name="password"
+                   placeholder="Mật khẩu"
+                   value="@Model.password" />
+        </div>
+        <div class="col-md-6">
+            <label for="email">Email</label>
+            <input type="text"
+                   class="form-control"
+                   id="email"
+                   name="email"
+                   placeholder="Email"
+                   value="@Model.email" />
+        </div>
+        <div class="col-md-6">
+            <label for="phone">Số điện thoại</label>
+            <input type="text"
+                   class="form-control"
+                   id="phone"
+                   name="phone"
+                   placeholder="Số điện thoại"
+                   value="@Model.phone" />
+        </div>
+        <div class="col-md-6">
+            <label for="id_role">ID Role</label>
+            <input type="text"
+                   class="form-control"
+                   id="id_role"
+                   name="id_role"
+                   placeholder="ID Role"
+                   value="@Model.id_role" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-info" style="margin:20px 0px;">Save</button>
+    <a href="/Admin/Taikhoan/taikhoan" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+</form>
+

@@ -1,0 +1,73 @@
+﻿@model LTW_FFOOD.Models.HoaDonViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management System</title>
+  
+    <style>
+
+        .order-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+            .order-card .order-number {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .order-card.order-info {
+                margin-top: 10px;
+            }
+
+            .order-card .order-actions {
+                margin-top: 20px;
+            }
+
+                .order-card .order-actions button {
+                    margin-right: 10px;
+    </style>
+</head>
+<body>
+    <nav class="navbar1 navbar-expand-lg navbar-dark bg-dark" style="margin-top:150px;">
+        <h1> <a class="navbar-brand" href="#">Đơn Hàng Của Bạn</a></h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        </div>
+    </nav>
+    <!-- Orders Section -->
+    <section id="orders" class="container1">
+        <div class="row">
+            @foreach (var bill in Model.bills)
+            {
+                foreach (var billinfo in Model.billinfos.Where(bi => bi.id_bill == bill.bill_id))
+                {
+                    var total = (billinfo.count * billinfo.price).ToString("#,##0");
+                    <div class="col-md-4">
+                        <div class="order-card">
+                            <div class="order-number">Đơn hàng:#@bill.bill_id</div>
+                            <div class="order-info">Tên món:<b> @Model.foods.FirstOrDefault(f => f.food_id == billinfo.id_food).food_name</b></div>
+                            <div class="order-info">Số lượng:<b>@billinfo.count</b> </div>
+                            <div class="order-info">Giá: <b>@billinfo.price.ToString("#,##0")đ</b></div>
+                            <div class="order-info">Tổng tiền:<b> @total</b><b>đ</b></div>
+                            <div class="order-info">Ngày đặt:<b> @bill.ngaydat.ToString("dd/mm/yyyy")</b></div>
+                            @*<div class="order-info">Địa chỉ: @bill.address</div>*@
+                            <div class="order-info">Trạng thái:<b> @bill.status</b></div>
+                        </div>
+                    </div>
+                }
+            }
+
+
+        </div>
+    </section>
+
+</body>
+</html>

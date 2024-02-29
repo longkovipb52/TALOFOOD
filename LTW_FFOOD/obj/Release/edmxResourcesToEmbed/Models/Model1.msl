@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LTWEB_FFoodModelStoreContainer" CdmEntityContainer="LTWEB_FFoodEntities">
+    <EntitySetMapping Name="Bill_info">
+      <EntityTypeMapping TypeName="LTWEB_FFoodModel.Bill_info">
+        <MappingFragment StoreEntitySet="Bill_info">
+          <ScalarProperty Name="billinfo_id" ColumnName="billinfo_id" />
+          <ScalarProperty Name="id_bill" ColumnName="id_bill" />
+          <ScalarProperty Name="id_food" ColumnName="id_food" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="LTWEB_FFoodModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="rolename" ColumnName="rolename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Language">
+      <EntityTypeMapping TypeName="LTWEB_FFoodModel.Language">
+        <MappingFragment StoreEntitySet="Language">
+          <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact">
+      <EntityTypeMapping TypeName="LTWEB_FFoodModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Food">
+      <EntityTypeMapping TypeName="LTWEB_FFoodModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="id_catagory" ColumnName="id_catagory" />
+          <ScalarProperty Name="food_name" ColumnName="food_name" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Food_Catagory">
+      <EntityTypeMapping TypeName="LTWEB_FFoodModel.Food_Catagory">
+        <MappingFragment StoreEntitySet="Food_Catagory">
+          <ScalarProperty Name="foodcategory_name" ColumnName="foodcategory_name" />
+          <ScalarProperty Name="foodcatagory_id" ColumnName="foodcatagory_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Account">
+      <EntityTypeMapping TypeName="LTWEB_FFoodModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bill">
+      <EntityTypeMapping TypeName="LTWEB_FFoodModel.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="ngaygiao" ColumnName="ngaygiao" />
+          <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+          <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,24 @@
+﻿@model LTW_FFOOD.Models.Food_Catagory
+@{
+    ViewBag.Title = "Deleteloai";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<h2>Xóa loại món ăn</h2>
+<form action="/Admin/LoaiSanPham/Deleteloai/@Model.foodcatagory_id" method="post">
+    <input type="hidden" name="foodcatagory_id" value="@Model.foodcatagory_id" />
+    <table class="table">
+        <tr>
+            <th>Id loại món</th>
+            <td>@Model.foodcatagory_id</td>
+        </tr>
+        <tr>
+            <th>Tên loại món</th>
+            <td>@Model.foodcategory_name</td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-info" style="margin:20px 0px;">Delete</button>
+    <a href="/Admin/LoaiSanPham/loaisanpham" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+</form>
+
+
+

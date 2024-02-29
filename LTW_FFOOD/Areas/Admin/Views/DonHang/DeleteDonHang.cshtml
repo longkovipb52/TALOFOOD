@@ -1,0 +1,35 @@
+﻿@model LTW_FFOOD.Models.Bill
+
+@{
+    ViewBag.Title = "Xóa sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Xóa món ăn</h2>
+@using (Html.BeginForm("DeleteDonHangConfirmed", "DonHang", new { idbill = Model.bill_id }, FormMethod.Post))
+{
+    <input type="hidden" name="food_id" value="@Model.bill_id" />
+    <table class="table">
+        <tr>
+            <th>Id Món</th>
+            <td>@Model.bill_id</td>
+        </tr>
+        <tr>
+            <th>Tên món</th>
+            <td>@Model.ngaydat</td>
+        </tr>
+        <tr>
+            <th>Id loại món</th>
+            <td>@Model.ngaygiao</td>
+        </tr>
+        <tr>
+            <th>Mô tả</th>
+            <td>@Model.status</td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-info" style="margin:20px 0px;">Delete</button>
+    <a href="/Admin/DonHang/donhang" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+}
+
+
+

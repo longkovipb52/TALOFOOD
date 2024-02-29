@@ -1,0 +1,43 @@
+﻿    @model LTW_FFOOD.Models.Account
+
+    @{
+        ViewBag.Title = "Thêm mới tài khoản";
+        Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+    }
+
+    <h2>Thêm mới tài khoản</h2>
+    <form action="/Admin/Taikhoan/ThemmoiTK" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="username">Tên Người Dùng</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="password">Mật khẩu</label>
+                <input type="text" class="form-control" id="password" name="password" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="phone">Số điện thoại</label>
+                <input type="text" class="form-control" id="phone" name="phone" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="id_role">ID Role</label>
+                <input type="text" class="form-control" id="id_role" name="id_role" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin:20px 0px;">Thêm tài khoản</button>
+        <a href="/Admin/Taikhoan/taikhoan" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+    </form>
+

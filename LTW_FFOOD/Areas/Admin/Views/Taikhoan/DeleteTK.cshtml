@@ -1,0 +1,39 @@
+﻿@model LTW_FFOOD.Models.Account
+
+@{
+    ViewBag.Title = "Xóa tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Xóa</h2>
+<form action="/Admin/Taikhoan/DeleteTK/@Model.account_id" method="post">
+    <input type="hidden" name="account_id" value="@Model.account_id" />
+    <table class="table">
+        <tr>
+            <th>Id Tài khoản</th>
+            <td>@Model.account_id</td>
+        </tr>
+        <tr>
+            <th>Tên người dùng</th>
+            <td>@Model.username</td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td>@Model.password</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>@Model.email</td>
+        </tr>
+        <tr>
+            <th>Số điện thoại</th>
+            <td>@Model.phone</td>
+        </tr>
+        <tr>
+            <th>Id Role</th>
+            <td>@Model.id_role</td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-info" style="margin:20px 0px;">Delete</button>
+    <a href="/Admin/Taikhoan/taikhoan" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+</form>

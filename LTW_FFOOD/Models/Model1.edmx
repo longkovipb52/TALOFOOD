@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LTWEB_FFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="account_id" />
+          </Key>
+          <Property Name="account_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_role" Type="int" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="bill_id" />
+          </Key>
+          <Property Name="bill_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ngaydat" Type="date" Nullable="false" />
+          <Property Name="ngaygiao" Type="date" Nullable="false" />
+          <Property Name="id_account" Type="int" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Bill_info">
+          <Key>
+            <PropertyRef Name="billinfo_id" />
+          </Key>
+          <Property Name="billinfo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_bill" Type="int" Nullable="false" />
+          <Property Name="id_food" Type="int" Nullable="false" />
+          <Property Name="id_account" Type="int" Nullable="false" />
+          <Property Name="count" Type="int" Nullable="false" />
+          <Property Name="price" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Language" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="food_id" />
+          </Key>
+          <Property Name="food_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="food_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_catagory" Type="int" Nullable="false" />
+          <Property Name="price" Type="money" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Food_Catagory">
+          <Key>
+            <PropertyRef Name="foodcatagory_id" />
+          </Key>
+          <Property Name="foodcatagory_id" Type="int" Nullable="false" />
+          <Property Name="foodcategory_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="isDefault" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="rolename" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Account_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bill_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="account_id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bill_info_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Bill_info" Type="Self.Bill_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="account_id" />
+            </Principal>
+            <Dependent Role="Bill_info">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bill_info_Bill">
+          <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+          <End Role="Bill_info" Type="Self.Bill_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="bill_id" />
+            </Principal>
+            <Dependent Role="Bill_info">
+              <PropertyRef Name="id_bill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bill_info_Food">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="Bill_info" Type="Self.Bill_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="food_id" />
+            </Principal>
+            <Dependent Role="Bill_info">
+              <PropertyRef Name="id_food" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Food_Catagory">
+          <End Role="Food_Catagory" Type="Self.Food_Catagory" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food_Catagory">
+              <PropertyRef Name="foodcatagory_id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="id_catagory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LTWEB_FFoodModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill_info" EntityType="Self.Bill_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food_Catagory" EntityType="Self.Food_Catagory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_Role" Association="Self.FK_Account_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bill_Account" Association="Self.FK_Bill_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bill_info_Account" Association="Self.FK_Bill_info_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Bill_info" EntitySet="Bill_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bill_info_Bill" Association="Self.FK_Bill_info_Bill">
+            <End Role="Bill" EntitySet="Bill" />
+            <End Role="Bill_info" EntitySet="Bill_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bill_info_Food" Association="Self.FK_Bill_info_Food">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="Bill_info" EntitySet="Bill_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Food_Catagory" Association="Self.FK_Food_Food_Catagory">
+            <End Role="Food_Catagory" EntitySet="Food_Catagory" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LTWEB_FFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bill_info">
+          <Key>
+            <PropertyRef Name="billinfo_id" />
+          </Key>
+          <Property Name="billinfo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_bill" Type="Int32" Nullable="false" />
+          <Property Name="id_food" Type="Int32" Nullable="false" />
+          <Property Name="id_account" Type="Int32" Nullable="false" />
+          <Property Name="count" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="LTWEB_FFoodModel.FK_Bill_info_Food" FromRole="Bill_info" ToRole="Food" />
+          <NavigationProperty Name="Account" Relationship="LTWEB_FFoodModel.FK_Bill_info_Account" FromRole="Bill_info" ToRole="Account" />
+          <NavigationProperty Name="Bill" Relationship="LTWEB_FFoodModel.FK_Bill_info_Bill" FromRole="Bill_info" ToRole="Bill" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="rolename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="LTWEB_FFoodModel.FK_Account_Role" FromRole="Role" ToRole="Account" />
+        </EntityType>
+        <EntityContainer Name="LTWEB_FFoodEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bill_info" EntityType="Self.Bill_info" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Language" EntityType="LTWEB_FFoodModel.Language" />
+          <EntitySet Name="Contact" EntityType="LTWEB_FFoodModel.Contact" />
+          <EntitySet Name="Food" EntityType="LTWEB_FFoodModel.Food" />
+          <EntitySet Name="Food_Catagory" EntityType="LTWEB_FFoodModel.Food_Catagory" />
+          <AssociationSet Name="FK_Bill_info_Food" Association="LTWEB_FFoodModel.FK_Bill_info_Food">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="Bill_info" EntitySet="Bill_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Food_Catagory" Association="LTWEB_FFoodModel.FK_Food_Food_Catagory">
+            <End Role="Food_Catagory" EntitySet="Food_Catagory" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <EntitySet Name="Account" EntityType="LTWEB_FFoodModel.Account" />
+          <AssociationSet Name="FK_Account_Role" Association="LTWEB_FFoodModel.FK_Account_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bill_info_Account" Association="LTWEB_FFoodModel.FK_Bill_info_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Bill_info" EntitySet="Bill_info" />
+          </AssociationSet>
+          <EntitySet Name="Bill" EntityType="LTWEB_FFoodModel.Bill" />
+          <AssociationSet Name="FK_Bill_Account" Association="LTWEB_FFoodModel.FK_Bill_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bill_info_Bill" Association="LTWEB_FFoodModel.FK_Bill_info_Bill">
+            <End Role="Bill" EntitySet="Bill" />
+            <End Role="Bill_info" EntitySet="Bill_info" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isDefault" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="food_id" />
+          </Key>
+          <Property Name="food_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="food_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_catagory" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bill_info" Relationship="LTWEB_FFoodModel.FK_Bill_info_Food" FromRole="Food" ToRole="Bill_info" />
+          <NavigationProperty Name="Food_Catagory" Relationship="LTWEB_FFoodModel.FK_Food_Food_Catagory" FromRole="Food" ToRole="Food_Catagory" />
+        </EntityType>
+        <EntityType Name="Food_Catagory">
+          <Key>
+            <PropertyRef Name="foodcatagory_id" />
+          </Key>
+          <Property Name="foodcatagory_id" Type="Int32" Nullable="false" />
+          <Property Name="foodcategory_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Food" Relationship="LTWEB_FFoodModel.FK_Food_Food_Catagory" FromRole="Food_Catagory" ToRole="Food" />
+        </EntityType>
+        <Association Name="FK_Bill_info_Food">
+          <End Type="LTWEB_FFoodModel.Food" Role="Food" Multiplicity="1" />
+          <End Type="LTWEB_FFoodModel.Bill_info" Role="Bill_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="food_id" />
+            </Principal>
+            <Dependent Role="Bill_info">
+              <PropertyRef Name="id_food" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Food_Catagory">
+          <End Type="LTWEB_FFoodModel.Food_Catagory" Role="Food_Catagory" Multiplicity="1" />
+          <End Type="LTWEB_FFoodModel.Food" Role="Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food_Catagory">
+              <PropertyRef Name="foodcatagory_id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="id_catagory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="account_id" />
+          </Key>
+          <Property Name="account_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_role" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Role" Relationship="LTWEB_FFoodModel.FK_Account_Role" FromRole="Account" ToRole="Role" />
+          <NavigationProperty Name="Bill_info" Relationship="LTWEB_FFoodModel.FK_Bill_info_Account" FromRole="Account" ToRole="Bill_info" />
+          <NavigationProperty Name="Bill" Relationship="LTWEB_FFoodModel.FK_Bill_Account" FromRole="Account" ToRole="Bill" />
+        </EntityType>
+        <Association Name="FK_Account_Role">
+          <End Type="LTWEB_FFoodModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="LTWEB_FFoodModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bill_info_Account">
+          <End Type="LTWEB_FFoodModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="LTWEB_FFoodModel.Bill_info" Role="Bill_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="account_id" />
+            </Principal>
+            <Dependent Role="Bill_info">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="bill_id" />
+          </Key>
+          <Property Name="bill_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ngaydat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ngaygiao" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_account" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="LTWEB_FFoodModel.FK_Bill_Account" FromRole="Bill" ToRole="Account" />
+          <NavigationProperty Name="Bill_info" Relationship="LTWEB_FFoodModel.FK_Bill_info_Bill" FromRole="Bill" ToRole="Bill_info" />
+        </EntityType>
+        <Association Name="FK_Bill_Account">
+          <End Type="LTWEB_FFoodModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="LTWEB_FFoodModel.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="account_id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bill_info_Bill">
+          <End Type="LTWEB_FFoodModel.Bill" Role="Bill" Multiplicity="1" />
+          <End Type="LTWEB_FFoodModel.Bill_info" Role="Bill_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="bill_id" />
+            </Principal>
+            <Dependent Role="Bill_info">
+              <PropertyRef Name="id_bill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LTWEB_FFoodModelStoreContainer" CdmEntityContainer="LTWEB_FFoodEntities">
+          <EntitySetMapping Name="Bill_info">
+            <EntityTypeMapping TypeName="LTWEB_FFoodModel.Bill_info">
+              <MappingFragment StoreEntitySet="Bill_info">
+                <ScalarProperty Name="billinfo_id" ColumnName="billinfo_id" />
+                <ScalarProperty Name="id_bill" ColumnName="id_bill" />
+                <ScalarProperty Name="id_food" ColumnName="id_food" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="LTWEB_FFoodModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="rolename" ColumnName="rolename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Language">
+            <EntityTypeMapping TypeName="LTWEB_FFoodModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="LTWEB_FFoodModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Food">
+            <EntityTypeMapping TypeName="LTWEB_FFoodModel.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="id_catagory" ColumnName="id_catagory" />
+                <ScalarProperty Name="food_name" ColumnName="food_name" />
+                <ScalarProperty Name="food_id" ColumnName="food_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Food_Catagory">
+            <EntityTypeMapping TypeName="LTWEB_FFoodModel.Food_Catagory">
+              <MappingFragment StoreEntitySet="Food_Catagory">
+                <ScalarProperty Name="foodcategory_name" ColumnName="foodcategory_name" />
+                <ScalarProperty Name="foodcatagory_id" ColumnName="foodcatagory_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="LTWEB_FFoodModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="account_id" ColumnName="account_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bill">
+            <EntityTypeMapping TypeName="LTWEB_FFoodModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="ngaygiao" ColumnName="ngaygiao" />
+                <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

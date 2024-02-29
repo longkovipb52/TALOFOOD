@@ -1,0 +1,354 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <style>
+        @@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-size: 18px;
+            background-color: beige;
+        }
+        body::selection{
+            color:white;
+            background-color:orange;
+        }
+
+        .wrapper {
+            width: 100%;
+            padding: 0px 10px;
+            margin-top: 33px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+
+        .navbar-expand-lg {
+            width: 100%;
+        }
+
+        .navbar-header {
+            align-items: baseline;
+        }
+
+        .navbar-expand-lg a {
+            margin: 0px 20px;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            margin: 15px -25px;
+            flex-wrap: nowrap;
+            text-transform:uppercase;
+        }
+
+        .nav-item {
+            margin: 0px 10px;
+        }
+
+            .nav-item img {
+                margin-right: 10px;
+            }
+
+        .action {
+            margin-left: 5px;
+        }
+
+            .action .action-item {
+                left: 15px;
+            }
+
+        .form-inline {
+            height: 50px;
+            width: 100%;
+            margin-left: 100px;
+            margin-bottom:10px;
+        }
+
+            .form-inline .form-control1 {
+                border-radius: 5px;
+                border: none;
+                outline: none;
+            }
+
+            .form-inline button {
+                background-color: black;
+                color: #fff;
+            }
+
+        footer .col-lg-4 li {
+            margin: 10px 0;
+        }
+
+        footer .col-lg-4 a {
+            text-decoration: none;
+            font-size: 26px;
+        }
+
+        nav {
+            margin-bottom: 50px;
+        }
+
+        .body-content {
+            width: 1332px;
+            padding: 60px 0px;
+            margin: auto;
+        }
+
+        .nav-item a:hover, .action-item :hover {
+            background-color: azure;
+            border-radius: 10px;
+        }
+
+        .dropdown-menu .dropdown-item:hover {
+            background-color: darkgray;
+        }
+        #input-box {
+            background-color: #f8f9fa;
+            color: #343a40;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+        @@media only screen and (max-width: 768px) {
+            .navbar {
+                height: 120px;
+                font-size: 14px;
+            }
+        }
+    @@media only screen and (min-width: 768px) and (max-width: 992px) {
+    /* Điều chỉnh các phần tử để phù hợp với kích thước màn hình trong khoảng này */
+    .navbar {
+        height: 120px; /* Hoặc bất kỳ điều chỉnh nào khác */
+    }
+
+    /* Điều chỉnh bố cục của footer */
+    footer {
+        padding: 30px;
+    }
+}
+    @@media only screen and (min-width: 992px) {
+    /* Điều chỉnh các phần tử để phù hợp với kích thước màn hình lớn hơn */
+    .navbar {
+        height: 150px; /* Hoặc bất kỳ điều chỉnh nào khác */
+    }
+
+    /* Điều chỉnh bố cục của footer */
+    footer {
+        padding: 40px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand navbar-inverse navbar-fixed-top upper-navbar" style="margin-top: 0; background-color:rgb(255, 186, 0);font-size:16px; font-weight:600;width:100%;position:fixed;height:170px;">
+        <a href="/Home/Home" class="navbar-brand" style="font-family:'Poppins'; padding:25px 60px;">
+            <img src="~/image/fast-food.png" style="height:50px;width:50px;padding:0px;margin-top:5px;" alt="Logo" class="nav-logo">
+            <h2>TALOFOOD</h2>
+        </a>
+        <div class="container wrapper">
+
+            <div class="navbar-header">
+
+                @if (Session["Username"] != null)
+                {
+                    string fullname = Session["Username"].ToString();
+                    string[] tachten = fullname.Split(' ');
+                    string firstname = tachten[0];
+                    string lastname = tachten[tachten.Length - 1];
+                    <div class="navbar-nav" style="font-size:20px;font-family:'Poppins';margin-left:25px;margin-bottom:5px;">
+                        <div class="nav-item">
+                            <a class="nav-link" href="/Home/Home"><img src="~/image/home.png" />Trang chủ</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="/Product/Sanphamtheoloai"><img src="~/image/burger.png" />Sản phẩm</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="/Contact/contact"><img src="~/image/phone.png" />Liên hệ</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="/AboutUs/aboutus"><img src="~/image/information.png" />About</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="/ShoppingCart/ShowCart"> <img src="~/image/shopping-cart.png" />Giỏ hàng</a>
+                        </div>
+                        <div class="nav-item">
+                            <div class="action" style="display:flex;">
+                                <div class="action-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="~/image/user (2).png" />Welcome, @lastname!
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/ThongTinKhachHang/Thongtin">Thông tin cá nhân</a>
+                                        <a class="dropdown-item" href="/ThanhToan/HienThiHoaDon">Hiển thị hóa đơn</a>
+                                        <a class="dropdown-item" href="/Dangnhap/Dangxuat">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-nav1 " style="width:1020px;margin-bottom:5px;">
+                        <form class="form-inline d-flex" action="@Url.Action("Timkiemsanpham", "Product")" method="get">
+                            <input class="form-control1" style="max-width:1086px;width:90%;" type="search" name="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" style="width:10%;" type="submit"><img src="~/image/—Pngtree—search icon_4490393.png" style="width:32px;height:32px;" alt="Alternate Text" /></button>
+                        </form>
+
+                    </div>
+                    
+                }
+                else
+                {
+                    <div class="navbar-nav" style="font-size:20px;font-family:'Poppins';margin-left:25px;">
+                        <div class="nav-item">
+                            <a class="nav-link" href="/Home/Home"><img src="~/image/home.png" />Trang chủ</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="/Product/Sanphamtheoloai"><img src="~/image/burger.png" />Sản phẩm</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="/Contact/contact"><img src="~/image/phone.png" />Liên hệ</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="/AboutUs/aboutus"><img src="~/image/information.png" />About</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link" href="/ShoppingCart/ShowCart"> <img src="~/image/shopping-cart.png" />Giỏ hàng</a>
+                        </div>
+                        <div class="nav-item">
+                            <div class="action" style="display:flex;">
+                                <div class="action-item"><a class="nav-link" href="/Dangnhap/Login" style="margin-left:40px;"><img src="~/image/user (2).png" />Đăng nhập</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-nav1" style="width:1020px;margin-bottom:20px;">
+                        <form class="form-inline d-flex " id="search-bar" action="@Url.Action("Timkiemsanpham", "Product")" method="get">
+                            <input class="form-control1" list="topics" id="input-box" style="max-width:1086px;width:90%;" type="search" name="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
+                            <datalist id="topics">
+                                <option value="Bánh Mì">Bánh Mì</option>
+                                <option value="Hambuger">Hambuger</option>
+                                <option value="Cơm gà">Cơm gà</option>
+                                <option value="Pizza">Pizza</option>
+                                <option value="Chả cá rong biển">Chả cá rong biển</option>
+                                <option value="Coca">Coca</option>
+                                <option value="Sting">Sting</option>
+                                <option value="Khoai tây chiên">Khoai tây chiên</option>
+                                <option value="Bánh Bao">Bánh Bao</option>
+                                <option value="Pepsi">Pepsi</option>
+                                <option value="Burger Gà Cajun">Burger Gà Cajun</option>
+                                <option value="Trà đào">Trà đào</option>
+                                <option value="Trà chanh">Trà chanh</option>
+                                <option value="Snack Mực">Snack Mực</option>
+                                <option value="Mì xào bò">  Mì xào bò</option>
+                                
+
+                            </datalist>
+                            <button class="btn btn-outline-success my-2 my-sm-0" style="width:10%;" type="submit"><img src="~/image/—Pngtree—search icon_4490393.png" style="width:32px;height:32px;" alt="Alternate Text" /></button>
+                        </form>
+                        
+                    </div>
+                   
+
+                }
+            </div>
+            
+
+        </div>
+    </nav>
+
+    <div class="container1 body-content">
+        @RenderBody()
+
+
+    </div>
+    <hr />
+    <footer class=" text-center text-lg-start text-dark " style="background-color: rgb(255, 186, 0);width:100%;">
+        <!-- Grid container -->
+        <div class="container p-4" style="font-size:20px">
+            <!--Grid row-->
+            <div class="row">
+                <div class="col-lg-1 col-md-4 mb-2 mb-md-0">
+                    <img src="~/image/fast-food.png" alt="TaLo Food" />
+                </div>
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h4 class="text-uppercase">TALO FOOD</h4>
+                    <p>Shop bán đồ ăn nhanh TaLo Food, hân hạnh được phục vụ quý khách ❤️❤️❤️</p>
+                    <p>Địa chỉ: 179 Huỳnh Văn Lũy, phường Phú Lợi, Thành phố Thủ Dầu Một,Tỉnh Bình Dương</p>
+                    <p>Điện thoại: 01234567890</p>
+
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0" style="margin:0 30px;border:none;">
+                    <h4 class="text-uppercase">Liên hệ với chúng tôi</h4>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <img src="~/image/phone.png" />
+                            <a href="/Contact/contact" class="text-dark">Liên hệ</a>
+                        </li>
+                        <li>
+                            <img src="~/image/facebook.png" />
+                            <a href="https://web.facebook.com/talofood" class="text-dark">FaceBook</a>
+                        </li>
+                        <li>
+                            <img src="~/image/email.png" />
+                            <a href="mailto:longkovipb52@gmail.com" class="text-dark">Email</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-dark" href="#">Talo.com</a>
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var prevScrollpos = window.pageYOffset;
+            $(window).scroll(function () {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    $(".navbar").css("height", "150px");
+                    $(".navbar-nav1").show();
+                } else {
+                    $(".navbar").css("height", "100px");
+                    $(".navbar-nav1").hide();
+                }
+                prevScrollpos = currentScrollPos;
+            });
+        });
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿    @model LTW_FFOOD.Models.Bill
+    @{
+        ViewBag.Title = "EditDonHang";
+        Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+    }
+    <h2>Chỉnh sửa</h2>
+    <form action="/Admin/DonHang/EditDonHang/@Model.bill_id" method="post">
+        <input type="text" name="bill_id" value="@Model.bill_id" readonly />
+        <div class="row">
+            <div class="col-md-6">
+                <label for="ngaydat">Ngày đặt</label>
+                <br />
+              <td>@Model.ngaydat</td>
+            </div>
+            <div class="col-md-6">
+                <label for="ngaygiao">Ngày giao</label><br />
+                <td>@Model.ngaygiao</td>
+
+            </div>
+            <div class="col-md-6">
+                <label for="id_account">ID người dùng</label>
+                <input type="text"
+                       class="form-control"
+                       id="id_account"
+                       name="id_account"
+                       placeholder="ID người dùng"
+                       value="@Model.id_account"
+                       readonly />
+            </div>
+            <div class="col-md-6">
+                <label for="address">Địa chỉ</label>
+                <input type="text"
+                       class="form-control"
+                       id="address"
+                       name="address"
+                       placeholder="Địa chỉ"
+                       value="@Model.address" 
+                       readonly/>
+            </div>
+            <div class="col-md-6">
+                <label for="status">Trạng thái</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="Chưa xử lý" @(Model.status == "Chưa xử lý" ? "selected" : "")>Chưa xử lý<</option>
+                    <option value="Đang vận chuyển" @(Model.status == "Đang vận chuyển" ? "selected" : "")>Đang vận chuyển</option>
+                    <option value="Đã giao" @(Model.status == "Đã giao" ? "selected" : "")>Đã giao</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-info" style="margin:20px 0px;">Save</button>
+        <a href="/Admin/DonHang/donhang" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+    </form>
+

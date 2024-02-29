@@ -1,0 +1,424 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.2": {
+      "bootstrap/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery": "1.9.0"
+        }
+      },
+      "Bootstrap.Pagination/1.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "4.5.6"
+        },
+        "compile": {
+          "lib/net451/Bootstrap.Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Bootstrap.Pagination.dll": {}
+        }
+      },
+      "Bootstrap.Pagination.MVC/1.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Bootstrap.Pagination": "1.0.10",
+          "bootstrap": "3.1.1",
+          "history.js": "1.7.0"
+        }
+      },
+      "history.js/1.7.0": {
+        "type": "package"
+      },
+      "jQuery/1.9.0": {
+        "type": "package"
+      },
+      "Newtonsoft.Json/4.5.6": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Pagination/3.0.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Pagination.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win": {
+      "bootstrap/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery": "1.9.0"
+        }
+      },
+      "Bootstrap.Pagination/1.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "4.5.6"
+        },
+        "compile": {
+          "lib/net451/Bootstrap.Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Bootstrap.Pagination.dll": {}
+        }
+      },
+      "Bootstrap.Pagination.MVC/1.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Bootstrap.Pagination": "1.0.10",
+          "bootstrap": "3.1.1",
+          "history.js": "1.7.0"
+        }
+      },
+      "history.js/1.7.0": {
+        "type": "package"
+      },
+      "jQuery/1.9.0": {
+        "type": "package"
+      },
+      "Newtonsoft.Json/4.5.6": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Pagination/3.0.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Pagination.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x64": {
+      "bootstrap/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery": "1.9.0"
+        }
+      },
+      "Bootstrap.Pagination/1.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "4.5.6"
+        },
+        "compile": {
+          "lib/net451/Bootstrap.Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Bootstrap.Pagination.dll": {}
+        }
+      },
+      "Bootstrap.Pagination.MVC/1.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Bootstrap.Pagination": "1.0.10",
+          "bootstrap": "3.1.1",
+          "history.js": "1.7.0"
+        }
+      },
+      "history.js/1.7.0": {
+        "type": "package"
+      },
+      "jQuery/1.9.0": {
+        "type": "package"
+      },
+      "Newtonsoft.Json/4.5.6": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Pagination/3.0.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Pagination.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x86": {
+      "bootstrap/3.1.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery": "1.9.0"
+        }
+      },
+      "Bootstrap.Pagination/1.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "4.5.6"
+        },
+        "compile": {
+          "lib/net451/Bootstrap.Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Bootstrap.Pagination.dll": {}
+        }
+      },
+      "Bootstrap.Pagination.MVC/1.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Bootstrap.Pagination": "1.0.10",
+          "bootstrap": "3.1.1",
+          "history.js": "1.7.0"
+        }
+      },
+      "history.js/1.7.0": {
+        "type": "package"
+      },
+      "jQuery/1.9.0": {
+        "type": "package"
+      },
+      "Newtonsoft.Json/4.5.6": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Pagination/3.0.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Pagination.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "bootstrap/3.1.1": {
+      "sha512": "bZdJfKiF+ez9518keshVM/mIZHCqDSrI+Bb4GjHauYlrMfgNuud9vZxrIf5QbqK9vaZ3mXmq02Kmg+TcPXm2MQ==",
+      "type": "package",
+      "path": "bootstrap/3.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap.3.1.1.nupkg.sha512",
+        "bootstrap.nuspec",
+        "content/Content/bootstrap-theme.css",
+        "content/Content/bootstrap-theme.css.map",
+        "content/Content/bootstrap-theme.min.css",
+        "content/Content/bootstrap.css",
+        "content/Content/bootstrap.css.map",
+        "content/Content/bootstrap.min.css",
+        "content/Scripts/bootstrap.js",
+        "content/Scripts/bootstrap.min.js",
+        "content/fonts/glyphicons-halflings-regular.eot",
+        "content/fonts/glyphicons-halflings-regular.svg",
+        "content/fonts/glyphicons-halflings-regular.ttf",
+        "content/fonts/glyphicons-halflings-regular.woff"
+      ]
+    },
+    "Bootstrap.Pagination/1.0.10": {
+      "sha512": "a3DdsJuqg8dzaWuLmbEoZ0oGExuwlzrpJ0Sq5WdwMQNNpphui8l2pIbTufHzUbI7ayT9nfgHN6zXX32zYuMi2A==",
+      "type": "package",
+      "path": "bootstrap.pagination/1.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap.pagination.1.0.10.nupkg.sha512",
+        "bootstrap.pagination.nuspec",
+        "lib/net20/Bootstrap.Pagination.XML",
+        "lib/net20/Bootstrap.Pagination.dll",
+        "lib/net20/Bootstrap.Pagination.pdb",
+        "lib/net30/Bootstrap.Pagination.XML",
+        "lib/net30/Bootstrap.Pagination.dll",
+        "lib/net30/Bootstrap.Pagination.pdb",
+        "lib/net35/Bootstrap.Pagination.XML",
+        "lib/net35/Bootstrap.Pagination.dll",
+        "lib/net35/Bootstrap.Pagination.pdb",
+        "lib/net40/Bootstrap.Pagination.XML",
+        "lib/net40/Bootstrap.Pagination.dll",
+        "lib/net40/Bootstrap.Pagination.pdb",
+        "lib/net45/Bootstrap.Pagination.XML",
+        "lib/net45/Bootstrap.Pagination.dll",
+        "lib/net45/Bootstrap.Pagination.pdb",
+        "lib/net451/Bootstrap.Pagination.XML",
+        "lib/net451/Bootstrap.Pagination.dll",
+        "lib/net451/Bootstrap.Pagination.pdb"
+      ]
+    },
+    "Bootstrap.Pagination.MVC/1.0.12": {
+      "sha512": "bzC19Bcu73P8RIECkg/CsbRc777bIkyELnbpkhdLRdl10QSnySJEP6YS0e8/Umg3dBXJcDYICLzicZe2aCO2Wg==",
+      "type": "package",
+      "path": "bootstrap.pagination.mvc/1.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap.pagination.mvc.1.0.12.nupkg.sha512",
+        "bootstrap.pagination.mvc.nuspec",
+        "content/Scripts/history4mvc.js",
+        "content/Views/Shared/Pager.cshtml",
+        "content/Views/Shared/Pagination.cshtml",
+        "content/Views/Shared/_History4MVC.cshtml"
+      ]
+    },
+    "history.js/1.7.0": {
+      "sha512": "srGwi2sq5hn5DuLHh/1QpgGw4t0KQif64IQ852wVf4ClfT4ilDJp6R0PqbXVVwREiSyicSIkpJirpJBkVurGOA==",
+      "type": "package",
+      "path": "history.js/1.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/scripts/history.js/amplify.store.js",
+        "content/scripts/history.js/history.adapter.dojo.js",
+        "content/scripts/history.js/history.adapter.jquery.js",
+        "content/scripts/history.js/history.adapter.mootools.js",
+        "content/scripts/history.js/history.adapter.prototype.js",
+        "content/scripts/history.js/history.adapter.yui.js",
+        "content/scripts/history.js/history.adapter.zepto.js",
+        "content/scripts/history.js/history.html4.js",
+        "content/scripts/history.js/history.js",
+        "content/scripts/history.js/json2.js",
+        "history.js.1.7.0.nupkg.sha512",
+        "history.js.nuspec"
+      ]
+    },
+    "jQuery/1.9.0": {
+      "sha512": "bS6OGSd/QL39vKKhATpeehgZDCzV6foRJ52EocEGAB29VetwXkQHN6KQIBlBbW9VJzuHr+rQxHYZ13MnPGQ/vw==",
+      "type": "package",
+      "path": "jquery/1.9.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-1.9.0-vsdoc.js",
+        "Content/Scripts/jquery-1.9.0.js",
+        "Content/Scripts/jquery-1.9.0.min.js",
+        "Content/Scripts/jquery-1.9.0.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-1.9.0.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jquery.1.9.0.nupkg.sha512",
+        "jquery.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/4.5.6": {
+      "sha512": "cvZjgllAF/w46KccFZncp0x4yIEceJwPlCTPEBjAPNbAvJXmMCIdGvQa1a8n7YKZ2yV9I1H1IZagwRG+gEbUxQ==",
+      "type": "package",
+      "path": "newtonsoft.json/4.5.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/sl3-wp/Newtonsoft.Json.dll",
+        "lib/sl3-wp/Newtonsoft.Json.xml",
+        "lib/sl4-windowsphone71/Newtonsoft.Json.dll",
+        "lib/sl4-windowsphone71/Newtonsoft.Json.xml",
+        "lib/sl4/Newtonsoft.Json.dll",
+        "lib/sl4/Newtonsoft.Json.xml",
+        "lib/winrt45/Newtonsoft.Json.dll",
+        "lib/winrt45/Newtonsoft.Json.xml",
+        "newtonsoft.json.4.5.6.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
+    "Pagination/3.0.0.3": {
+      "sha512": "nsLHxbCDKwmCMBBLZ8L71Idv3DNu3i6gttrJt6mANq0CMpeQAM5WnqdSQc2QuJpcbUXbl3hCGDl0z9Dh5qlsOQ==",
+      "type": "package",
+      "path": "pagination/3.0.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Pagination.dll",
+        "lib/net45/Pagination.dll",
+        "lib/netcoreapp3.1/Pagination.dll",
+        "pagination.3.0.0.3.nupkg.sha512",
+        "pagination.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.2": [
+      "Bootstrap.Pagination.MVC >= 1.0.12",
+      "Pagination >= 3.0.0.3"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\PC\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\PC\\OneDrive\\Tài liệu\\Visual Studio 2017\\Projects\\LTW_FFOOD\\Common\\Common.csproj",
+      "projectName": "Common",
+      "projectPath": "C:\\Users\\PC\\OneDrive\\Tài liệu\\Visual Studio 2017\\Projects\\LTW_FFOOD\\Common\\Common.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\OneDrive\\Tài liệu\\Visual Studio 2017\\Projects\\LTW_FFOOD\\Common\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net472"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net472": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net472": {
+        "dependencies": {
+          "Bootstrap.Pagination.MVC": {
+            "target": "Package",
+            "version": "[1.0.12, )"
+          },
+          "Pagination": {
+            "target": "Package",
+            "version": "[3.0.0.3, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

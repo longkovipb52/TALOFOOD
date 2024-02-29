@@ -1,0 +1,66 @@
+﻿@model LTW_FFOOD.Models.Food
+
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Chỉnh sửa</h2>
+<form action="/Admin/Sanpham/Edit/@Model.food_id" method="post">
+    <input type="hidden" name="food_id" value="@Model.food_id" />
+    <div class="row">
+        <div class="col-md-6">
+            <label for="food_name">Tên món</label>
+            <input type="text"
+                   class="form-control"
+                   id="food_name"
+                   name="food_name"
+                   placeholder="Tên Món"
+                   value="@Model.food_name" />
+        </div>
+        <div class="col-md-6">
+            <label for="id_catagory">Id loại món</label>
+            <input type="text"
+                   class="form-control"
+                   id="id_catagory"
+                   name="id_catagory"
+                   placeholder="ID Loại Món"
+                   value="@Model.id_catagory" />
+
+        </div>
+        <div class="col-md-6">
+            <label for="price">Giá món</label>
+            <input type="text"
+                   class="form-control"
+                   id="price"
+                   name="price"
+                   placeholder="Giá"
+                   value="@Model.price.ToString("#,##0")" />
+        </div>
+        <div class="col-md-6">
+            <label for="description">Mô tả</label>
+            <input type="text"
+                   class="form-control"
+                   id="description"
+                   name="description"
+                   placeholder="Mô tả"
+                   value="@Model.description" />
+        </div>
+        <div class="col-md-6">
+            <label for="image">Hình ảnh</label>
+            <input type="file"
+                   class="form-control"
+                   id="image"
+                   name="image"
+                   placeholder="Hình ảnh"
+                   value="@Model.image"
+                   accept=".jpg, .jpeg, .png"
+                   required />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-info" style="margin:20px 0px;">Save</button>
+    <a href="/Admin/Sanpham/sanpham" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+</form>
+
+
+

@@ -1,0 +1,31 @@
+﻿@model List<LTW_FFOOD.Models.KhachHangDonHangViewModel>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Tên người dùng</th>
+        <th>Địa chỉ</th>
+        <th>Số điện thoại</th>
+        <th>Tổng số lượng sản phẩm đã mua</th>
+        <th>Tổng tiền đã mua</th>
+    </tr>
+    @foreach (var model in Model)
+    {
+        <tr>
+            <td>
+                @model.TenKhachHang
+                    </td>
+            <td>
+                @model.DiaChi 
+                    </td>
+            <td>
+                @model.SoDienThoai 
+                    </td>
+            <td>
+                @model.SoLuongHang 
+                    </td>
+            <td>
+                @model.TongTien 
+                    </td>
+        </tr>
+    }
+</table>

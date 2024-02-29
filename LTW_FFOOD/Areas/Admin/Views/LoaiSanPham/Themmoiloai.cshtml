@@ -1,0 +1,17 @@
+﻿@model LTW_FFOOD.Models.Food_Catagory
+@{
+    ViewBag.Title = "Themmoiloai";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<h2>Thêm loại đồ ăn</h2>
+<form action="/Admin/LoaiSanPham/Themmoiloai" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="foodcatagory_name">Tên loại</label>
+            <input type="text" class="form-control" id="foodcategory_name" name="foodcategory_name" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin:20px 0px;">Thêm món mới</button>
+    <a href="/Admin/LoaiSanPham/loaisanpham" class="btn btn-danger" style="margin-left:10px;">Cancel</a>
+</form>
+

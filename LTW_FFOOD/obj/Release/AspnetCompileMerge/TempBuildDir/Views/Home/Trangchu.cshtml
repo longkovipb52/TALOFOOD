@@ -1,0 +1,116 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link href="~/Assets/css/Home.css" rel="stylesheet" />
+    <title>TrangChu</title>
+
+
+
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="content">
+            <div class="show">
+                <div class="slides">
+                    <div class="slide">
+                        <img id="img" onclick="changeimg()" src="~/image/banhmi.jpg" alt="">
+
+                    </div>
+                </div>
+
+                <script>
+                    var index = 1;
+                    changeimg = function () {
+                        var imgs = ["~/image/banhmi.jpg", "~/image/doannhand - Copy.jpg", "~/image/do-uong-healthy-0 - Copy.jpg"];
+                        document.getElementById('img').src = imgs[index];
+                        index++;
+                        if (index == 3) {
+                            index = 0;
+                        }
+                    }
+
+                </script>
+
+
+
+                <div class="product">
+
+                    <div class="item item1">
+                        <div id="zoom1">
+                            <figure>
+                                <img src="~/image/doannhand.jpg" />
+                            </figure>
+                        </div>
+                        <h2>Đồ Ăn Nhanh </h2>
+                    </div>
+                    <div class="item item2">
+                        <div id="zoom2">
+                            <figure>
+                                <img src="~/image/do-uong-healthy-0.jpg" />
+                            </figure>
+                        </div>
+                        <h2>Đồ Uống </h2>
+                    </div>
+                    <div class="item item3">
+                        <div id="zoom3">
+                            <figure>
+                                <img src="~/image/combo-la-gi-1.jpg" />
+                            </figure>
+                        </div>
+                        <h2>Combo Hot</h2>
+                    </div>
+
+
+                    <div class="item item4">
+                        <div id="zoom4">
+                            <figure>
+                                <img src="~/image/combo-la-gi-1.jpg" />
+                            </figure>
+                        </div>
+                        <h2>Combo Hot</h2>
+                    </div>
+                    <div class="item item5">
+                        <div id="zoom5">
+                            <figure>
+                                <img src="~/image/do-uong-healthy-0.jpg" />
+                            </figure>
+                            <h2>Nuoc mat lanh</h2>
+                        </div>
+                    </div>
+                    <div class="item item6">
+                        <div class="zoom6">
+                            <figure>
+                                <img src="~/image/doannhand.jpg" />
+                            </figure>
+                            <h2>Do an sieu ngon</h2>
+                        </div>
+                    </div>
+                    <div class="item item7">
+                        <div class="zoom7">
+                            <figure>
+                                <img src="~/image/zyro-image (2).png" />
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="item item8">
+                        <img src="~/image/zyro-image (2).png" />
+                    </div>
+                    <div class="item item9">
+                        <img src="~/image/zyro-image (2).png" />
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</body>
+</html>

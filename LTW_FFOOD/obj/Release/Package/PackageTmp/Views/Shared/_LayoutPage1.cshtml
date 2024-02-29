@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+
+
+        /* Thêm prefix cho container */
+        .site-container {
+            width: 100%;
+            height: auto;
+        }
+
+        .menu {
+            position: sticky;
+            width: 100%;
+            height: 120px;
+            background-color: rgb(255, 186, 0);
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .up {
+            padding-top: 1px;
+            width: 80%;
+            height: 70px;
+            margin: 0px;
+        }
+
+            .up ul {
+                list-style: none;
+                margin-top: 0px;
+            }
+
+                .up ul li {
+                    float: left;
+                    margin: 20px;
+                }
+
+                    .up ul li .user-nav {
+                        right: 10px;
+                    }
+
+                    .up ul li a {
+                        text-decoration: none;
+                        font-weight: bold;
+                        font-size: 20px;
+                        color: black;
+                    }
+
+                        .up ul li a img {
+                            vertical-align: middle;
+                        }
+
+        .down {
+            height: 50px;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .search {
+            height: 40px;
+            width: 550px;
+            background-color: white;
+            margin-left: 235px;
+            border-radius: 7px;
+        }
+
+            .search input {
+                height: 35px;
+                width: 500px;
+                border: 0px;
+                border-radius: 7px;
+            }
+
+            .search button img {
+                height: auto;
+                width: 20px;
+                vertical-align: middle;
+            }
+
+        .DangNhap {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Thêm prefix cho footer */
+        .footer-container {
+            background-color: rgb(255, 186, 0);
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .footer-left p {
+            color: #8c8c8c;
+            font-size: 13px;
+            margin-top: 0px;
+            margin-bottom: 12px;
+            line-height: 20px;
+        }
+
+        .footer-ul li {
+            list-style-type: none;
+            line-height: 29px;
+        }
+
+            .footer-ul li a {
+                color: #8c8c8c;
+                text-decoration: none;
+            }
+
+                .footer-ul li a:hover {
+                    color: #ffcc00;
+                    text-decoration: none;
+                }
+
+        .fb-page span {
+            overflow: hidden;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-container">
+        <div class="menu">
+            <div class="up">
+                <ul>
+                    <li class="logo">
+                        <a href=@Url.Action("TrangChu1","Home1")>
+                            <img src="~/image/fast-food.png" alt="" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Home","Home")>
+                            <img src="~/image/home.png" alt="" />
+                            Trang Chủ
+                        </a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Sanphamtheoloai","Product")>
+                            <img src="~/image/burger.png" />
+                            Sản Phẩm
+                        </a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("GioiThieu","GioiThieu")>
+                            <img src="~/image/" />
+                            Giới Thiệu
+                        </a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("contact","Contact")>
+                            <img src="~/image/phone.png" />
+                            Liên Hệ
+                        </a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("ShowCart","ShoppingCart")>
+                            <img src="~/image/cart1.png" />
+                            Giỏ Hàng
+                        </a>
+                    </li>
+                    <li>
+
+                        <div class="DangNhap">
+                            @if (Session["username"] != null)
+                            {
+                                string fullname = Session["Username"].ToString();
+                                string[] tachten = fullname.Split(' ');
+                                string firstname = tachten[0];
+                                string lastname = tachten[tachten.Length - 1];
+                                <div class="user-info" style="font-weight:bold;font-size:20px;">
+                                    Xin chào, @lastname            |
+                                    <a href="@Url.Action("Dangxuat", "DangNhap")"><img src="~/image/logout.png" alt="" />Đăng Xuất</a>
+                                </div>
+                            }
+                            else
+                            {
+                                <a href=@Url.Action("Login","DangNhap")>
+                                    <img src="~/image/login.png" />
+                                    Đăng Nhập
+                                </a>
+                            }
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="down">
+                <!-- Thêm vào nơi bạn muốn hiển thị biểu mẫu tìm kiếm trong layout -->
+                <div class="search">
+                    <form action="@Url.Action("Timkiem", "Search")" method="get">
+                        <input type="text" name="searchTerm" placeholder="Tìm Kiếm" />
+                        <button type="submit">Tìm</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Thay đổi tên class container thành site-container -->
+        <div>
+            @RenderBody()
+        </div>
+        <!-- Thay thế footer bằng class footer-container -->
+        <div class="footer-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 footerleft ">
+                        <div class="logofooter"> <img src="~/image/fast-food.png" alt="logo"></div>
+                        <p>
+                            Talo Food là địa điểm lý tưởng cho những người đam mê ẩm thực nhanh chóng và ngon miệng. Chúng tôi tự hào mang đến cho khách hàng những trải nghiệm độc đáo với các món ăn nhanh chất lượng cao. Chúng tôi cam kết sử dụng nguyên liệu tươi ngon nhất và đội ngũ nhân viên tận tâm để mang đến cho bạn những bữa ăn ngon lành và không gian thoải mái. Hãy đến và khám phá thế giới hương vị đặc trưng của Talo Food!
+                        </p>
+                        <p><i class="fa fa-map-pin"></i> 179 Huỳnh Văn Lũy, Phú Lợi, TP. Thủ Dầu Một </p>
+                        <p><i class="fa fa-phone"></i> Phone (Hotline): 0376760356</p>
+                        <p><i class="fa fa-envelope"></i> E-mail : <a href="mailto:info.dagngoctan@gmail.com">info.dagngoctan@gmail.com</a></p>
+                    </div>
+                    <div class="col-md-2 col-sm-6 paddingtop-bottom">
+                        <h6 class="heading7">THỰC ĐƠN</h6>
+                        <ul class="footer-ul">
+                            <li><a href="#">Gà rán</a></li>
+                            <li><a href="#">Burger</a></li>
+                            <li><a href="#">Món ăn nhẹ</a></li>
+                            <li><a href="#">Tráng miệng</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                        <h6 class="heading7">HỖ TRỢ KHÁCH HÀNG</h6>
+                        <ul class="footer-ul">
+                            <li><a href="#">Câu hỏi thường gặp</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                        <div class="fb-page" data-href="https://www.facebook.com/JollibeeVietnam/" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/JollibeeVietnam/" class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/JollibeeVietnam/">
+                                    <img src="~/image/fast-food.png" alt="logo">TaLo Food
+                                </a>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

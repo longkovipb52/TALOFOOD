@@ -1,0 +1,182 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+<style>
+    .register a{
+        text-decoration:none;
+    }
+    .register{
+        text-align:center;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+    }
+
+    form {
+        width: 390px;
+        background-color: #fff;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .text-name, .text-pass {
+        width: 100%;
+        position: relative;
+        background-color: #e6e6e6;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        margin: 10px 0px;
+    }
+
+    h4 {
+        font-family: Candara;
+        font-size: 30px;
+        color: #403886;
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-align: center;
+        width: 100%;
+        display: block;
+        font-weight: 600;
+    }
+
+    .card {
+        min-height: 400px;
+        min-width: 340px;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+        .card img {
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+            .card img:hover {
+                opacity: 0.8;
+            }
+
+        .card input[type="text"], .card input[type="password"] {
+            min-width: 100%;
+            border-radius: 5px;
+            background-color: #e6e6e6;
+            font-size: 18px;
+            height: 55px;
+            border: 1px solid transparent;
+            transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            display: -webkit-box;
+            display: -webkit-flex;
+            background: 0 0;
+            min-height: 100%;
+            border: none;
+            outline: none;
+        }
+
+    .container-login {
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 17px;
+    }
+
+    .card button[type="submit"] {
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        background-color: #007bff;
+        text-transform: uppercase;
+        line-height: 1.2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 62px;
+    }
+
+        .card button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    .fg1 {
+        font-family: Candara;
+        font-size: 16px;
+        color: #827ffe;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+
+    
+    .forget a:hover {
+        color: #4e4eff;
+    }
+    .btn-danger {
+        text-decoration:none;
+        background-color:chocolate;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        text-transform: uppercase;
+        line-height: 1.2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 62px;
+    }
+    .btn-danger:hover{
+        background-color:saddlebrown;
+    }
+    .flex-sb-m{
+        margin:10px 0px;
+    }
+    
+</style>
+
+<div class="center">
+    <form action="/DangNhap2/Dangnhap2/" method="post">
+        <div class="card">
+            <img src="~/image/fast-food.png" style="height:50px;width:50px;" />
+            <h4>Log In or Sign Up</h4>
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger" style="color: #721c24;background-color: #f8d7da;border-color: #f5c6cb;">Thông tin đăng nhập sai</div>
+            }
+            <div class="text-name">
+                <input type="text" name="username" placeholder="Email or Phone Number" />
+                <span class="text-name-sp">
+                </span>
+            </div>
+            <div class="text-pass">
+                <input type="password" name="password" placeholder="Password " />
+                <span class="text-name-sp">
+                </span>
+            </div>
+            <div class="flex-sb-m w-full p-t-3 p-b-24">
+                <div class="forget">
+                    <a href="#" class="fg1 text-decoration-none">
+                        Forget Your Account?
+                    </a>
+                </div>
+            </div>
+            <button type="submit">Login</button>
+            <a class="btn btn-danger" href="/ThanhToan/ThanhToanKhongCanDangNhap" style="margin: 10px 0;">Đặt hàng không cần đăng nhập </a>
+            <div class="register">
+                <span data-bind="i18n: 'Not have account yet?'">Chưa có tài khoản?</span>
+                <a class="register-link" href="/DangNhap2/DangKy">Đăng ký ngay</a>
+            </div>
+        </div>
+    </form>
+</div>
